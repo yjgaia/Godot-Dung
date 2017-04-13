@@ -1,12 +1,58 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://images/man0.png" type="Texture" id=1]
+[ext_resource path="res://sounds/bgm.ogg" type="AudioStream" id=1]
+[ext_resource path="res://images/bg.png" type="Texture" id=2]
+[ext_resource path="res://scripts/bg.gd" type="Script" id=3]
+[ext_resource path="res://images/title.png" type="Texture" id=4]
+[ext_resource path="res://images/start_button.png" type="Texture" id=5]
+[ext_resource path="res://font.fnt" type="BitmapFont" id=6]
 
 [node name="root" type="Node"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-transform/pos = Vector2( 41.7544, 91.1006 )
-texture = ExtResource( 1 )
+stream/stream = ExtResource( 1 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 180, 320 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 0, 360, 640 )
+script/script = ExtResource( 3 )
+
+[node name="title" type="Sprite" parent="."]
+
+transform/pos = Vector2( 175.13, 108.311 )
+texture = ExtResource( 4 )
+
+[node name="start_button" type="Sprite" parent="."]
+
+transform/pos = Vector2( 179.989, 395.263 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 71.0
+margin/top = 174.0
+margin/right = 287.0
+margin/bottom = 218.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "제작: 심영재"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
